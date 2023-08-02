@@ -1,0 +1,8 @@
+export const NDTV_URL = 'https://www.ndtv.com/latest'
+export const INDIA_TODAY_URL = 'https://www.indiatoday.in/trending-news'
+export const AAJ_TAK_URL = 'https://www.aajtak.in/'
+export const ZEE_NEWS_URL = 'https://zeenews.india.com/latest-news'
+export const TIMES_OF_INDIA_URL = 'https://timesofindia.indiatimes.com/'
+export const NEWS_18_URL = 'https://www.news18.com/news/'
+export const INDIAN_EXPRESS_URL = 'https://indianexpress.com/latest-news/'
+export const TIMES_NOW_URL = 'https://www.timesnownews.com/latest-news'
