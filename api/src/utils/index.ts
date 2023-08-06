@@ -8,6 +8,7 @@ import {
   INDIAN_EXPRESS_URL,
   TIMES_NOW_URL
 } from '../constants/urls'
+import { NewsItem } from '../interfaces'
 
 export const newsList = [
   {
@@ -51,3 +52,27 @@ export const newsList = [
     endpoint: 'times-now-news'
   },
 ]
+
+// Utility function to add common properties to scrapedData
+export function addInfoNewsResponse(scrapedData: NewsItem[]){
+
+  const timestamp = new Date().toISOString()
+  return { 
+    data: scrapedData, 
+    timestamp, 
+    totalCount: scrapedData.length 
+  }
+  
+}
+
+// Common function to fetch and process news data
+export async function fetchAndProcessNewsData(scrapeFunction: ()=> Promise<NewsItem[]>) {
+  try {
+    const scrapedData = await scrapeFunction()
+    const newsRes = addInfoNewsResponse(scrapedData)
+    return newsRes
+  } catch (error) {
+    console.error(error)
+    throw new Error('Failed to fetch and process scraped data.')
+  }
+}

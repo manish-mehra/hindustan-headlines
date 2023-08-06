@@ -9,13 +9,12 @@ export async function scrapeTimesOfIndia(): Promise<NewsItem[]> {
   const $ = cheerio.load(response.data)
   const newsItems: NewsItem[] = []
 
-  $('ul.cvs_wdt li').each((index, element) => {
-    const newsTitle = $(element).find('span.w_tle a').text().trim()
-    const newsUrl = 'https://timesofindia.indiatimes.com' + $(element).find('span.w_tle a').attr('href') || ''
+  $('.main-content .listing4.clearfix ul.cvs_wdt.clearfix').each((index, element) => {
+    const newsTitle = $(element).find('li span.w_tle a').text().trim()
+    const newsUrl = 'https://timesofindia.indiatimes.com' + $(element).find('li span.w_tle a').attr('href') || ''
     const newsImage = $(element).find('img').attr('src') || ''
-    const newsTimestamp = $(element).find('span.w_desc span').attr('data-time') || ''
-    const newsDescription = $(element).find('span.w_desc').text().trim()
-
+    const newsTimestamp = $(element).find('li span.w_desc span').attr('data-time') || ''
+    const newsDescription = $(element).find('li span.w_desc').text().trim()
     if (newsTitle) {
       newsItems.push({
         title: newsTitle,
@@ -26,6 +25,6 @@ export async function scrapeTimesOfIndia(): Promise<NewsItem[]> {
       })
     }
   })
-
+  console.log('scraped again')
   return newsItems
 }

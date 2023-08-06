@@ -9,9 +9,9 @@ export async function scrapeTimesNow(): Promise<NewsItem[]> {
   const $ = cheerio.load(response.data)
   const newsItems: NewsItem[] = []
 
-  $('div.xgYs-._280yP div._1W5s9').each((index, element) => {
-    const newsTitle = $(element).find('a.undefined div._2fwwc > div').text().trim()
-    const newsUrl = $(element).find('a.undefined').attr('href') || ''
+  $('div.xgYs._280y div._1W5s').each((index, element) => {
+    const newsTitle = $(element).find('a').text().trim()
+    const newsUrl = $(element).find('a').attr('href') || ''
     const newsImage = $(element).find('img').attr('data-src') || ''
     const newsTimestamp = '' // The timestamp is not available in the provided HTML
     const newsDescription = ''
