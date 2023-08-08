@@ -3,7 +3,9 @@ import News from './components/News'
 import Footer from './components/Footer'
 import NewsList from './components/NewsList'
 
+
 function App() {
+
 
   return (
   <>
