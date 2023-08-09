@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   define: {
     __DEV_API_URL__: JSON.stringify('http://localhost:8080/api'), // Local development
-    __PROD_API_URL__: JSON.stringify('http://production-api-url/api'), // Production
+    __PROD_API_URL__: JSON.stringify('https://hindustan-headline-api.onrender.com/api/v1'), // Production
   },
 })
