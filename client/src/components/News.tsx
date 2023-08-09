@@ -9,7 +9,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const NewsCard: React.FunctionComponent<NewsItemProps> = ({title, description, url, image, timestamp}) => {
 
   return(
-    <a href={url} className="w-full cursor-pointer p-4 gap-2 flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 ">
+    <a href={url} className="min-w-full cursor-pointer p-4 gap-2 flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 ">
       <div className="flex flex-col justify-between leading-normal">
         <h5 className="mb-1 text-lg font-semibold tracking-tight text-gray-900 ">{title.length > 100 ? `${title.substring(0, 100)}...` : title}</h5>
         <p className="mb-3 font-normal text-sm text-gray-700">{description && description.length > 150 ? `${description.substring(0, 150)}...` : description}</p>
@@ -36,12 +36,12 @@ function News({selectedNews}: {selectedNews: NewsSource | null}) {
 
   return (
     <>
-    <section className='flex flex-col mb-20'>
+    <section className='flex flex-col mb-20 min-w-full'>
       <div className='mb-3'>
         <p className='text-xs mb-1'>Fetched At: {timestamp}</p>
         <p className='text-xs'>News Count: {count}</p>
       </div>
-      <div className='flex flex-row flex-wrap gap-4'>
+      <div className='flex flex-row flex-wrap gap-4 w-full'>
         {
           status === 'fetching' && (<Skeleton count={3} width = {"100%"} height={130} borderRadius={'0.5rem'} className='' containerClassName='flex flex-col mb-1 w-full'/>)
         }

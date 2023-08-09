@@ -14,7 +14,7 @@ function App() {
   return (
   <>
     <main className="flex flex-col items-center min-h-screen mx-4 overflow-hidden">
-      <div className='max-w-xl w-full'>
+      <div className='max-w-2xl w-full'>
         <Header/>
         <NewsList selectedNews = {selectedNews} setSelectedNews = {setSelectedNews}/>
         {
