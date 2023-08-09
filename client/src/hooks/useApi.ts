@@ -1,17 +1,6 @@
 import { useEffect, useRef, useReducer, Reducer } from 'react'
+import { ApiState, ApiAction } from '../types';
 
-type ApiStatus = 'idle' | 'fetching' | 'fetched' | 'error'
-
-type ApiAction =
-  | { type: 'FETCHING' }
-  | { type: 'FETCHED'; payload: any }
-  | { type: 'FETCH_ERROR'; payload: string }
-
-interface ApiState {
-  status: ApiStatus;
-  error: string | null;
-  data: any[];
-}
 
 const initialState: ApiState = {
   status: 'idle',
@@ -54,8 +43,6 @@ const useApi = (api: string) => {
           const res = await fetch(api)
           const data = await res.json()
           cacheData.current[api] = data
-          console.log('fetched data')
-
           if (revokeRequest) return
           dispatch({ type: 'FETCHED', payload: data })
         } catch (error) {
