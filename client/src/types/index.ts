@@ -19,17 +19,8 @@ export type ApiAction =
   | { type: 'FETCHED'; payload: any }
   | { type: 'FETCH_ERROR'; payload: string }
 
-interface ApiResponseWithData<T> {
+export interface ApiState {
     status: ApiStatus;
     error: string | null;
-    data: T;
+    data: any;
 }
-  
-interface ApiResponseWithoutData {
-    status: ApiStatus;
-    error: string | null;
-    data: null;
-}
-  
-export type ApiState<T> = ApiResponseWithData<T> | ApiResponseWithoutData;
-  

@@ -27,7 +27,7 @@ function NewsList({selectedNews, setSelectedNews}: NewsListProps) {
           }
           {
               status === 'fetched' && data.length > 0 ? (
-                data.map((news) => (
+                data.map((news:NewsSource) => (
                   <div
                     key={news?.name}
                     onClick={() => {
