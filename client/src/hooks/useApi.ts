@@ -23,8 +23,7 @@ const fetchReducer: Reducer<ApiState, ApiAction> = (state, action) => {
 
 const useApi = (api: string) => {
 
-  const cacheData = useRef<{ [key: string]: any }>({})
-
+  const cacheData = useRef<{[key: string]: any}>({})
   const [state, dispatch] = useReducer(fetchReducer, initialState)
 
   useEffect(() => {
@@ -42,7 +41,9 @@ const useApi = (api: string) => {
         try {
           const res = await fetch(api)
           const data = await res.json()
-          cacheData.current[api] = data
+          const oldData = JSON.parse(JSON.stringify(cacheData.current))
+          oldData[api] = data
+          cacheData.current = oldData
           if (revokeRequest) return
           dispatch({ type: 'FETCHED', payload: data })
         } catch (error) {

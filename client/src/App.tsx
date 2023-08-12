@@ -18,9 +18,6 @@ function App() {
         <Header/>
         <NewsList selectedNews = {selectedNews} setSelectedNews = {setSelectedNews}/>
         {
-          selectedNews === null && <h3 className='font-medium text-cyan-500'>Select a news source to view news</h3>
-        }
-        {
           selectedNews !== null && <News selectedNews = {selectedNews}/>
         }
       </div>
