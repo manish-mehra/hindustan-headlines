@@ -9,7 +9,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const NewsCard: React.FunctionComponent<NewsItemProps> = ({title, description, url, image, timestamp}) => {
 
   return(
-    <a href={url} className="min-w-full cursor-pointer p-4 gap-2 flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 ">
+    <a href={url} className="min-w-full cursor-pointer p-4 gap-2 flex flex-col-reverse items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 ">
       <div className="flex flex-col justify-between leading-normal">
         <h5 className="mb-1 text-lg font-semibold tracking-tight text-gray-900 ">{title.length > 100 ? `${title.substring(0, 100)}...` : title}</h5>
         <p className="mb-3 font-normal text-sm text-gray-700">{description && description.length > 150 ? `${description.substring(0, 150)}...` : description}</p>
